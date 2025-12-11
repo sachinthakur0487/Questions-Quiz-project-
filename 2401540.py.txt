@@ -1,0 +1,87 @@
+# Simple Quiz Project
+# This project uses: lists, dictionaries, functions, loops, conditionals
+# Questions and answers are stored inside the program
+
+questions = [
+    {"q": "Which button makes alphabets/letters in uppercase and lowercase and numbers to symbols?", "a": "Shift"},
+    {"q": "When a computer is switched on, the booting process performs__?", "a": "Power on self test"},
+    {"q": "What is the software frequently utilized by end users called (like Word, PowerPoint)?", "a": "Application Software"},
+    {"q": "Unit of measurement of the output quality of a printer?", "a": "Dot per sq. inch"},
+    {"q": "Switching device of fifth generation computer is__?", "a": "VLSI"},
+    {"q": "The unit KIPS is used to measure the speed of __?", "a": "Processor"},
+    {"q": "DOS stands for__?", "a": "Disk Operating System"},
+    {"q": "What is a joy stick primarily in computers used for?", "a": "Computer Gaming"},
+    {"q": "In 1999, the Melissa virus was a widely publicised__?", "a": "E-mail virus"},
+    {"q": "COBOL is an acronym for__?", "a": "Common Business Oriented Language"},
+    {"q": "The ability of an OS to run more than one application at a time is called?", "a": "Multitasking"},
+    {"q": "What is the functional key to display save-as box?", "a": "F12"},
+    {"q": "Full form of NOS ?", "a": "Network Operating system"},
+    {"q": "Something which has easily understood instructions is said to be..........?", "a": "Analog Data"},
+    {"q": "A modem is connected to a__?", "a": "Telephone Line"},
+    {"q": "Refresh Rate of monitor is measured in?", "a": "Hertz"},
+    {"q": "What was the chief component of first generation computer?", "a": "Vacuum tube & Valves"},
+    {"q": "Who is the father of Computer science?", "a": "Charles Babbage"},
+    {"q": "In a computer, most processing takes place in__?", "a": "CPU"},
+    {"q": "In which type of computer, data are represented as discrete signals?", "a": "Digital Computer"},
+    {"q": "A computer cannot 'boot' if it does not have the__?", "a": "Operating system"},
+    {"q": "What is the other name for programmed chip?", "a": "LSIC"},
+    {"q": "A normal CD-ROM can store up to how much data?", "a": "680 MB"},
+    {"q": "What does DMA stand for?", "a": "Direct Memory Access"},
+    {"q": "Full form of LAN?", "a": "Local Area Network"},
+    {"q": "ASCII stands for__?", "a": "American Standard Code for Information Interchange"},
+    {"q": "Scientific Name of Computer?", "a": "Sillico sapiens"},
+    {"q": "What is the name of the display feature that highlights part of the screen needing attention?", "a": "Reverse Video"},
+    {"q": "Computers combining both measuring and counting are called__?", "a": "Hybrid Computer"},
+    {"q": "Name the Father of Computer Mouse?", "a": "Douglas Engelbart"},
+    {"q": "A program that performs useful tasks while doing destructive acts is__?", "a": "Trojan Horse"},
+    {"q": "The geometric arrangement of devices on network is called__?", "a": "Topology"},
+    {"q": "Basic goal of computer process is to convert data into ___?", "a": "Information"},
+    {"q": "Where are the CPU and memory located?", "a": "Motherboard"},
+    {"q": "Founder of IBM Company?", "a": "Thomas J. Watson"},
+    {"q": "An image on a computer screen is made up of__?", "a": "Pixels"},
+    {"q": "Full form of MAN?", "a": "Metropolitan Area Network"},
+    {"q": "Which DOS command recovers deleted files?", "a": "UNDELETE"},
+    {"q": "What converts entire program into machine language at once?", "a": "Compiler"}
+]
+
+
+def run_quiz():
+    score = 0
+    for item in questions:
+        print(f"
+Question: {item['q']}")
+        ans = input("Your Answer: ").strip()
+        if ans.lower() == item['a'].lower():
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Wrong! Correct answer: {item['a']}")
+    print(f"
+Your Score: {score}/{len(questions)}")
+
+
+def main():
+    print("
+--- Welcome to General Computer Knowledge Quiz ---")
+    run_quiz()
+
+
+if __name__ == "__main__":
+    main():
+    filename = "question_bank.txt"
+    questions = load_questions(filename)
+
+    if not questions:
+        return
+
+    print("\n--- Welcome to the Computer Knowledge Quiz ---")
+    print(f"Total questions: {len(questions)}")
+
+    score = run_quiz(questions)
+
+    print("\n--- Quiz Finished ---")
+    print(f"Your Score: {score}/{len(questions)}")
+
+
+if __name__ == "__main__":
+    main()
